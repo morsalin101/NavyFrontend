@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengali Dashboard</title>
+    <link href="../src/output.css" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-kalpurush">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="bg-blue-900 text-white w-64 flex-shrink-0">
+            <!-- Sidebar Header -->
+            <div class="py-4 px-4 bg-blue-900 border-b border-blue-800">
+                <div class="flex items-center">
+                    <div class="mr-2">
+                        <div class="w-8 h-8  rounded-full flex items-center justify-center">
+                            <img src="../assets/navyLogo.png" alt="Navy Logo" class="w-8 h-8 rounded-full" />
+                        </div>
+                    </div>
+                    <div class="ml-2">
+                        <h1 class="text-lg font-medium">বাংলাদেশ নৌবাহিনী </h1>
+                        <p class="text-xs opacity-80">বেসামরিক কর্মী ব্যবস্থাপনা</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <div class="py-4 px-4">
+                <ul>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 text-yellow-400 hover:bg-blue-800">
+                            <!-- <i class="fas fa-home w-5 mr-3"></i> -->
+                             <img src="../assets/sidebar/Category.png" alt="">
+                            <span>ড্যাশবোর্ড</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                              <img src="../assets/sidebar/Filter 3.png" alt="">
+                            <span>অনুসন্ধান</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                              <img src="../assets/sidebar/Folder.png" alt="">
+                            <span>কর্মচারী তথ্য</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                              <img src="../assets/sidebar/Category.png" alt="">
+                            <span>অনুসন্ধান</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                             <img src="../assets/sidebar/Filter.png" alt="">
+                            <span>ব্যবহারকারী ব্যবস্থাপনা</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                            <img src="../assets/sidebar/Chart.png" alt="">
+                            <span>প্রতিবেদন</span>
+                        </a>
+                    </li>
+
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                              <img src="../assets/sidebar/Info Square.png" alt="">
+                            <span>ক্রিয়াকলাপ ও লগ</span>
+                        </a>
+
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                              <img src="../assets/sidebar/Setting.png" alt="">
+                            <span>সেটিংস</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                            <img src="../assets/sidebar/Logout.png" alt="">
+                            <span>লগআউট</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto">
+            <!-- Header -->
+            <div class="bg-blue-900 text-white py-4 px-6 flex justify-between items-center">
+                <div></div>
+                <div class="flex items-center">
+                    <div class="mr-6 relative">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-user text-gray-600"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="p-6">
+                <!-- Welcome Section -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                    <div class="md:col-span-3 bg-blue-800 text-white rounded-lg p-6">
+                        <h2 class="text-2xl">স্বাগতম মোঃ রফিক মিয়া</h2>
+                        <p class="text-xl mt-2">আজ ১৫ এপ্রিল ২০২৫, সোমবার!</p>
+                    </div>
+                    <div class="bg-blue-800 text-white rounded-lg p-6 flex flex-col items-center justify-center">
+                        <h3 class="text-4xl font-bold">৩০০</h3>
+                        <p class="text-center">অনুমোদন অপেক্ষায়</p>
+                        <button class="mt-4 bg-[#FFEC01] text-blue-900 py-[8px] px-[20px] rounded-full hover:bg-yellow-300">
+                            সব দেখুন <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Stat Card 1 -->
+                    <div class="bg-[#D8EAFF] rounded-lg p-6 flex items-center">
+                        <div class="relative w-32 h-32">
+                        <svg class="transform -rotate-90 w-full h-full" viewBox="0 0 100 100">
+                            <!-- Background circle -->
+                            <circle
+                            class="text-white"
+                            stroke-width="10"
+                            stroke="currentColor"
+                            fill="transparent"
+                            r="40"
+                            cx="50"
+                            cy="50"
+                            />
+                            <!-- Progress circle (value: 75%) -->
+                            <circle
+                            class="text-blue-800"
+                            stroke-width="10"
+                            stroke-dasharray="251.2"
+                            stroke-dashoffset="62.8"
+                            stroke-linecap="round"
+                            stroke="currentColor"
+                            fill="transparent"
+                            r="40"
+                            cx="50"
+                            cy="50"
+                            />
+                        </svg>
+
+                        </div>
+
+                        <div>
+                            <h3 class="text-blue-800">ঘাটতি</h3>
+                            <p class="text-4xl font-bold">৮৭%</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 2 -->
+                    <div class="bg-[#D8EAFF] rounded-lg p-6 flex items-center">
+                        <div class="mr-4 flex items-end h-20">
+                            <div class="w-6 h-12 rounded-t bg-blue-800 mr-1"></div>
+                            <div class="w-6 h-20 rounded-t bg-blue-800"></div>
+                        </div>
+                        <div>
+                            <h3 class="text-gray-600">শুন্যপদ</h3>
+                            <p class="text-4xl font-bold">৪৩০২</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 3 -->
+                    <div class="bg-[#D8EAFF] rounded-lg p-6 flex items-center">
+                        <div class="mr-4">
+                            <div class="text-5xl text-blue-800">
+                                <img src="../assets/taka 1.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-gray-600">সম্ভাব্য বেতন খরচ</h3>
+                            <p class="text-4xl font-bold">১০ কোটি</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

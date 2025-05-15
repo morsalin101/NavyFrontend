@@ -1,0 +1,12 @@
+@font-face {
+    font-family: kalpurush; 
+     font-style: normal; 
+      font-weight: 200 700; 
+       font-display: swap;  
+       src: url("fonts/kalpurush.ttf") format("Truetype");
+    }
+@import "tailwindcss";
+
+@theme {
+  --font-kalpurush: "kalpurush", "sans-serif"; 
+}
