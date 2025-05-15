@@ -1,6 +1,6 @@
-@import url('https://fonts.maateen.me/kalpurush/font.css');    
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@100..900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-kalpurush: "kalpurush", "sans-serif"; 
+  --font-noto:  "Noto Sans Bengali", sans-serif;
 }
