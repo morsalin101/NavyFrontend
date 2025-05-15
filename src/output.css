@@ -5,7 +5,7 @@
   font-style: normal;
   font-weight: 200 700;
   font-display: swap;
-  src: url("fonts/kalpurush.ttf") format("Truetype");
+  src: url("../fonts/kalpurush-webfont.woff") format("woff");
 }
 @layer theme, base, components, utilities;
 @layer theme {
@@ -241,9 +241,6 @@
   .grid {
     display: grid;
   }
-  .table {
-    display: table;
-  }
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
@@ -295,23 +292,14 @@
   .flex-1 {
     flex: 1;
   }
-  .flex-shrink {
-    flex-shrink: 1;
-  }
   .flex-shrink-0 {
     flex-shrink: 0;
-  }
-  .border-collapse {
-    border-collapse: collapse;
   }
   .-rotate-90 {
     rotate: calc(90deg * -1);
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-  }
-  .resize {
-    resize: both;
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -340,9 +328,6 @@
   .overflow-auto {
     overflow: auto;
   }
-  .rounded {
-    border-radius: 0.25rem;
-  }
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
@@ -352,10 +337,6 @@
   .rounded-t {
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
   }
   .border-b {
     border-bottom-style: var(--tw-border-style);
@@ -373,9 +354,6 @@
   .bg-\[\#FFEC01\] {
     background-color: #FFEC01;
   }
-  .bg-\[FFEC01\] {
-    background-color: FFEC01;
-  }
   .bg-blue-800 {
     background-color: var(--color-blue-800);
   }
@@ -391,9 +369,6 @@
   .bg-red-500 {
     background-color: var(--color-red-500);
   }
-  .bg-yellow-400 {
-    background-color: var(--color-yellow-400);
-  }
   .p-6 {
     padding: calc(var(--spacing) * 6);
   }
@@ -405,9 +380,6 @@
   }
   .px-\[20px\] {
     padding-inline: 20px;
-  }
-  .py-2 {
-    padding-block: calc(var(--spacing) * 2);
   }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
@@ -471,15 +443,8 @@
   .text-yellow-400 {
     color: var(--color-yellow-400);
   }
-  .underline {
-    text-decoration-line: underline;
-  }
   .opacity-80 {
     opacity: 80%;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .hover\:bg-blue-800 {
     &:hover {
@@ -540,11 +505,6 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -555,7 +515,6 @@
       --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-font-weight: initial;
-      --tw-outline-style: solid;
     }
   }
 }

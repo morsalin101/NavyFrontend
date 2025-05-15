@@ -3,7 +3,7 @@
      font-style: normal; 
       font-weight: 200 700; 
        font-display: swap;  
-       src: url("fonts/kalpurush.ttf") format("Truetype");
+       src: url("../fonts/kalpurush-webfont.woff") format("woff");
     }
 @import "tailwindcss";
 
