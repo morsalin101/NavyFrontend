@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengali Dashboard</title>
+    <link href="../src/output.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        #sidebar.show {
+            display: block !important;
+            position: fixed;
+            z-index: 50;
+            height: 100%;
+            top: 40px;
+            background-color: #1e3a8a; /* Match your blue-900 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-noto">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div id="sidebar" class="bg-blue-900 text-white w-64 flex-shrink-0 hidden md:block">
+            <!-- Sidebar Header -->
+            <div class="py-4 px-4 bg-blue-900 border-b border-blue-800 sticky top-0">
+                <div class="flex items-center">
+                    <div class="mr-2">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center">
+                            <img src="../assets/navyLogo.png" alt="Navy Logo" class="w-8 h-8 rounded-full" />
+                        </div>
+                    </div>
+                    <div class="ml-2">
+                        <h1 class="text-[#FFEC01] text-lg font-medium">বাংলাদেশ নৌবাহিনী </h1>
+                        <p class="text-[#FFEC01] text-xs opacity-80">বেসামরিক কর্মী ব্যবস্থাপনা</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <div class="py-4 px-4">
+                <ul class="text-[#FFEC01]">
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="index.html" class="flex gap-2 items-center px-4 py-3 text-yellow-400 hover:bg-blue-800">
+                            <img src="../assets/sidebar/Category.png" alt="">
+                            <span>ড্যাশবোর্ড</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                            <img src="../assets/sidebar/Filter 3.png" alt="">
+                            <span>অনুসন্ধান</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                            <img src="../assets/sidebar/Folder.png" alt="">
+                            <span>কর্মচারী তথ্য</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                            <img src="../assets/sidebar/Category.png" alt="">
+                            <span>অনুসন্ধান</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="userList.html" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                            <img src="../assets/sidebar/Filter.png" alt="">
+                            <span>ব্যবহারকারী ব্যবস্থাপনা</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                            <img src="../assets/sidebar/Chart.png" alt="">
+                            <span>প্রতিবেদন</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                            <img src="../assets/sidebar/Info Square.png" alt="">
+                            <span>ক্রিয়াকলাপ ও লগ</span>
+                        </a>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                            <img src="../assets/sidebar/Setting.png" alt="">
+                            <span>সেটিংস</span>
+                        </a>
+                    </li>
+                    <li class="mb-1 border-b border-[#FFEC01]">
+                        <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
+                            <img src="../assets/sidebar/Logout.png" alt="">
+                            <span>লগআউট</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto relative">
+            <!-- Hamburger Button (Mobile Only) -->
+            <div class="md:hidden top-4 left-4 z-50 absolute">
+                <button id="hamburgerBtn" class="text-white bg-blue-900 p-2 rounded-md focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Overlay (Mobile Only) -->
+            <div id="overlay" class="hidden fixed inset-0 z-40 overlay md:hidden"></div>
+
+            <!-- Header -->
+            <div class="bg-blue-900 text-white py-4 px-6 flex justify-between items-center">
+                <div></div>
+                <div class="flex items-center">
+                    <div class="mr-6 relative">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-user text-gray-600"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+        <div class="p-6">
+        <div class="bg-gray-100 p-6 rounded-md shadow-md">
+         <div class="bg-blue-50 rounded-md shadow-md p-6">
+
+        <!-- photo,name,download -->
+        <div class="flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 md:gap-2 mb-6 bg-[#EEF6FF]">
+            <div class="md:w-1/3 items-center">
+                    <div class="h-[243px] w-[243px] rounded-full overflow-hidden border-4 border-blue-700 mr-6 ">
+                <img src="assets/person.png" alt="Profile Picture" class="w-full h-full object-cover">
+                </div>
+            </div>
+         <div class="md:w-1/3">
+            <h2 class="text-xl font-semibold text-[#15358C] mb-1">মোহাম্মদ রফিক মিয়া</h2>
+            <p class="text-xl text-[#15358C]  mb-1">ডিডি, ভিসিপি</p>
+            <p class="text-xl text-[#15358C]">চাকুরীতে যোগদানের তারিখ: ১০ই অক্টোবর ২০২<span dir="ltr">৫</span></p>
+            <p class="text-xl text-[#15358C]">চাকুরীতে যোগদানের তারিখ: ১০ই অক্টোবর ২০২<span dir="ltr">৫</span></p>
+        </div>
+            <a href="#" class="text-blue-600 hover:underline text-sm gap-2 flex  justify-center  items-center md:w-1/3">
+              <img src="assets/Subtract.png" alt="">         
+             <p>Download Bio data</p>
+            </a>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <button class="px-4 py-2 text-[18px]  text-yellow-300 bg-[#15358C] font-semibold focus:outline-none  rounded-t-2xl">ব্যক্তিগত তথ্য</button>
+                <button class="px-4 py-2 text-[18px] text-[#15358C] focus:outline-none">পারিবারিক তথ্য</button>
+                <button class="px-4 py-2 text-[18px] text-[#15358C] focus:outline-none">শিক্ষাগত তথ্য</button>
+                <button class="px-4 py-2 text-[18px] text-[#15358C] focus:outline-none">চাকরির তথ্য</button>
+                <button class="px-4 py-2 text-[18px] text-[#15358C] focus:outline-none">পদোন্নতি</button>
+                <button class="px-4 py-2 text-[18px] text-[#15358C] focus:outline-none">বদলী</button>
+                <button class="px-4 py-2 text-[18px] text-[#15358C] focus:outline-none">শৃঙ্খলাজনিত তথ্য</button>
+                <button class="px-4 py-2 text-[18px] text-[#15358C] focus:outline-none rounded-tr-md rounded-br-md">এসিয়ার</button>
+        </div>
+
+           <div class="flex flex-col md:flex-row-reverse items-center mb-4 j">
+
+            <button class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                সম্পাদনা
+            </button>
+           </div>
+           
+                     <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="nid-english" class="block text-gray-700 text-sm font-bold mb-2">পি নং (ইংরেজী)</label>
+                            <input type="text" id="nid-english" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="blood-group" class="block text-gray-700 text-sm font-bold mb-2">রক্তের গ্রুপ</label>
+                            <input type="text" id="blood-group" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="name-bangla" class="block text-gray-700 text-sm font-bold mb-2">নাম (বাংলা)</label>
+                            <input type="text" id="name-bangla" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="mobile-no" class="block text-gray-700 text-sm font-bold mb-2">Mobile No</label>
+                            <input type="text" id="mobile-no" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="name-english" class="block text-gray-700 text-sm font-bold mb-2">নাম (ইংরেজী)</label>
+                            <input type="text" id="name-english" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                            <input type="email" id="email" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="birth-date" class="block text-gray-700 text-sm font-bold mb-2">জন্ম তারিখ (ইংরেজী)</label>
+                            <input type="date" id="birth-date" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="nid-no" class="block text-gray-700 text-sm font-bold mb-2">NID No</label>
+                            <input type="text" id="nid-no" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="gender" class="block text-gray-700 text-sm font-bold mb-2">লিঙ্গ</label>
+                            <select id="gender" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option>পুরুষ</option>
+                            <option>মহিলা</option>
+                            <option>অন্যান্য</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="father-name-english" class="block text-gray-700 text-sm font-bold mb-2">সনাক্ত করণ চিহ্ন (ইংরেজী)</label>
+                            <input type="text" id="father-name-english" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="marital-status" class="block text-gray-700 text-sm font-bold mb-2">বৈবাহিক অবস্থা</label>
+                            <select id="marital-status" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option>অবিবাহিত</option>
+                            <option>বিবাহিত</option>
+                            <option>বিপত্নীক/বিধবা</option>
+                            <option>তালাকপ্রাপ্ত</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="emergency-contact-name" class="block text-gray-700 text-sm font-bold mb-2">যোগাযোগকারীর/কর্ত্রী পার্টনারের নাম</label>
+                            <input type="text" id="emergency-contact-name" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="marriage-date" class="block text-gray-700 text-sm font-bold mb-2">বিয়ের তারিখ (ইংরেজী)</label>
+                            <input type="date" id="marriage-date" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="emergency-contact-number" class="block text-gray-700 text-sm font-bold mb-2">যোগাযোগকারীর/কর্ত্রী পার্টনারের ফোন নম্বর</label>
+                            <input type="text" id="emergency-contact-number" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="basic-salary" class="block text-gray-700 text-sm font-bold mb-2">basic salary</label>
+                            <input type="number" id="basic-salary" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#hamburgerBtn').on('click', function () {
+                $('#sidebar').toggleClass('show');
+                $('#overlay').toggleClass('hidden');
+            });
+
+            $('#overlay').on('click', function () {
+                $('#sidebar').removeClass('show');
+                $('#overlay').addClass('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
