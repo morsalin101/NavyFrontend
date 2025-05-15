@@ -5,21 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bengali Dashboard</title>
     <link href="../src/output.css" rel="stylesheet">
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        #sidebar.show {
+            display: block !important;
+            position: fixed;
+            z-index: 50;
+            height: 100%;
+            background-color: #1e3a8a; /* Match your blue-900 */
+        }
+    </style>
 </head>
 <body class="bg-gray-100 font-kalpurush">
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <div class="bg-blue-900 text-white w-64 flex-shrink-0">
+        <div id="sidebar" class="bg-blue-900 text-white w-64 flex-shrink-0 hidden md:block">
             <!-- Sidebar Header -->
             <div class="py-4 px-4 bg-blue-900 border-b border-blue-800">
                 <div class="flex items-center">
                     <div class="mr-2">
-                        <div class="w-8 h-8  rounded-full flex items-center justify-center">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center">
                             <img src="../assets/navyLogo.png" alt="Navy Logo" class="w-8 h-8 rounded-full" />
                         </div>
                     </div>
-                    <div class="ml-2 ">
+                    <div class="ml-2">
                         <h1 class="text-[#FFEC01] text-lg font-medium">বাংলাদেশ নৌবাহিনী </h1>
                         <p class="text-[#FFEC01] text-xs opacity-80">বেসামরিক কর্মী ব্যবস্থাপনা</p>
                     </div>
@@ -31,32 +40,31 @@
                 <ul class="text-[#FFEC01]">
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="index.html" class="flex gap-2 items-center px-4 py-3 text-yellow-400 hover:bg-blue-800">
-                            <!-- <i class="fas fa-home w-5 mr-3"></i> -->
-                             <img src="../assets/sidebar/Category.png" alt="">
+                            <img src="../assets/sidebar/Category.png" alt="">
                             <span>ড্যাশবোর্ড</span>
                         </a>
                     </li>
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
-                              <img src="../assets/sidebar/Filter 3.png" alt="">
+                            <img src="../assets/sidebar/Filter 3.png" alt="">
                             <span>অনুসন্ধান</span>
                         </a>
                     </li>
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
-                              <img src="../assets/sidebar/Folder.png" alt="">
+                            <img src="../assets/sidebar/Folder.png" alt="">
                             <span>কর্মচারী তথ্য</span>
                         </a>
                     </li>
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
-                              <img src="../assets/sidebar/Category.png" alt="">
+                            <img src="../assets/sidebar/Category.png" alt="">
                             <span>অনুসন্ধান</span>
                         </a>
                     </li>
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="userList.html" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
-                             <img src="../assets/sidebar/Filter.png" alt="">
+                            <img src="../assets/sidebar/Filter.png" alt="">
                             <span>ব্যবহারকারী ব্যবস্থাপনা</span>
                         </a>
                     </li>
@@ -66,16 +74,14 @@
                             <span>প্রতিবেদন</span>
                         </a>
                     </li>
-
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
-                              <img src="../assets/sidebar/Info Square.png" alt="">
+                            <img src="../assets/sidebar/Info Square.png" alt="">
                             <span>ক্রিয়াকলাপ ও লগ</span>
                         </a>
-
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
-                              <img src="../assets/sidebar/Setting.png" alt="">
+                            <img src="../assets/sidebar/Setting.png" alt="">
                             <span>সেটিংস</span>
                         </a>
                     </li>
@@ -90,7 +96,17 @@
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 overflow-auto">
+        <div class="flex-1 overflow-auto relative">
+            <!-- Hamburger Button (Mobile Only) -->
+            <div class="md:hidden top-4 left-4 z-50 absolute">
+                <button id="hamburgerBtn" class="text-white bg-blue-900 p-2 rounded-md focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Overlay (Mobile Only) -->
+            <div id="overlay" class="hidden fixed inset-0 z-40 overlay md:hidden"></div>
+
             <!-- Header -->
             <div class="bg-blue-900 text-white py-4 px-6 flex justify-between items-center">
                 <div></div>
@@ -127,34 +143,11 @@
                     <!-- Stat Card 1 -->
                     <div class="bg-[#D8EAFF] rounded-lg p-6 flex items-center">
                         <div class="relative w-32 h-32">
-                        <svg class="transform -rotate-90 w-full h-full" viewBox="0 0 100 100">
-                            <!-- Background circle -->
-                            <circle
-                            class="text-white"
-                            stroke-width="10"
-                            stroke="currentColor"
-                            fill="transparent"
-                            r="40"
-                            cx="50"
-                            cy="50"
-                            />
-                            <!-- Progress circle (value: 75%) -->
-                            <circle
-                            class="text-blue-800"
-                            stroke-width="10"
-                            stroke-dasharray="251.2"
-                            stroke-dashoffset="62.8"
-                            stroke-linecap="round"
-                            stroke="currentColor"
-                            fill="transparent"
-                            r="40"
-                            cx="50"
-                            cy="50"
-                            />
-                        </svg>
-
+                            <svg class="transform -rotate-90 w-full h-full" viewBox="0 0 100 100">
+                                <circle class="text-white" stroke-width="10" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
+                                <circle class="text-blue-800" stroke-width="10" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
+                            </svg>
                         </div>
-
                         <div>
                             <h3 class="text-blue-800">ঘাটতি</h3>
                             <p class="text-4xl font-bold">৮৭%</p>
@@ -189,5 +182,21 @@
             </div>
         </div>
     </div>
+
+    <!-- jQuery Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#hamburgerBtn').on('click', function () {
+                $('#sidebar').toggleClass('show');
+                $('#overlay').toggleClass('hidden');
+            });
+
+            $('#overlay').on('click', function () {
+                $('#sidebar').removeClass('show');
+                $('#overlay').addClass('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
