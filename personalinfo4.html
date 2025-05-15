@@ -151,9 +151,11 @@
           <div class="bg-white flex flex-col">
                <!-- links -->
                     <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-                            <button class="px-4 py-2 text-[18px]  text-[#FFEC01] bg-[#15358C] font-semibold focus:outline-none  rounded-t-2xl">ব্যক্তিগত তথ্য</button>
+                            
+                            <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">ব্যক্তিগত তথ্য</button>
+                            
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">পারিবারিক তথ্য</button>
-                            <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">শিক্ষাগত তথ্য</button>
+                            <button class="px-4 py-2 text-[18px]  text-[#FFEC01] bg-[#15358C] font-semibold focus:outline-none  rounded-t-2xl">শিক্ষাগত তথ্য  </button>
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">চাকরির তথ্য</button>
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">পদোন্নতি</button>
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">বদলী</button>
@@ -163,85 +165,73 @@
 
                     <div class="flex flex-col md:flex-row-reverse items-center mb-4 j">
 
-                        <button class="bg-[#15358C] hover:bg-blue-900 text-[#FFEC01] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        <button class="bg-[#15358C] hover:bg-blue-900 text-[#FFEC01]  py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             সম্পাদনা
                         </button>
                     </div>
                             <!-- form -->
-                     <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label for="nid-english" class="block text-primary  mb-2">পি নং (ইংরেজী)</label>
-                            <input type="text" id="nid-english" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="blood-group" class="block text-primary  mb-2">রক্তের গ্রুপ</label>
-                            <input type="text" id="blood-group" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="name-bangla" class="block text-primary  mb-2">নাম (বাংলা)</label>
-                            <input type="text" id="name-bangla" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="mobile-no" class="block text-primary  mb-2">মোবাইল নম্বর</label>
-                            <input type="text" id="mobile-no" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="name-english" class="block text-primary  mb-2">নাম (ইংরেজী)</label>
-                            <input type="text" id="name-english" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-primary  mb-2">ইমেইল</label>
-                            <input type="email" id="email" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="birth-date" class="block text-primary  mb-2">জন্ম তারিখ (ইংরেজী)</label>
-                            <input type="date" id="birth-date" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="nid-no" class="block text-primary  mb-2">এনআইডি</label>
-                            <input type="text" id="nid-no" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="gender" class="block text-primary  mb-2">লিঙ্গ</label>
-                            <select id="gender" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option>পুরুষ</option>
-                            <option>মহিলা</option>
-                            <option>অন্যান্য</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="father-name-english" class="block text-primary  mb-2">সনাক্ত করণ চিহ্ন (ইংরেজী)</label>
-                            <input type="text" id="father-name-english" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="marital-status" class="block text-primary  mb-2">বৈবাহিক অবস্থা</label>
-                            <select id="marital-status" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option>অবিবাহিত</option>
-                            <option>বিবাহিত</option>
-                            <option>বিপত্নীক/বিধবা</option>
-                            <option>তালাকপ্রাপ্ত</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="emergency-contact-name" class="block text-primary  mb-2">যোগাযোগকারীর/কর্ত্রী পার্টনারের নাম</label>
-                            <input type="text" id="emergency-contact-name" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="marriage-date" class="block text-primary  mb-2">বিয়ের তারিখ (ইংরেজী)</label>
-                            <input type="date" id="marriage-date" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="emergency-contact-number" class="block text-primary  mb-2">যোগাযোগকারীর/কর্ত্রী পার্টনারের ফোন নম্বর</label>
-                            <input type="text" id="emergency-contact-number" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="basic-salary" class="block text-primary  mb-2">বেসিক সেলারি</label>
-                            <input type="number" id="basic-salary" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                    </div>
-            
+               
 
           </div>
+ 
+            <div class="border-2 border-dashed border-blue-400 rounded-xl p-6 flex">
+                <div class="flex-shrink-0 mr-8">
+                    <div class="relative">
+                    <div class="absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 w-0.5 bg-blue-400"></div>
+                    <ul>
+                        <li class="mb-6">
+                        <div class="rounded-full w-4 h-4 bg-blue-400 absolute left-1/2 transform -translate-x-1/2 -top-1.5"></div>
+                        <p class="text-sm text-gray-700 ml-6">২০ মার্চ ২০২<span dir="ltr">৫</span> - lorium ipsum</p>
+                        </li>
+                        <li class="mb-6">
+                        <div class="rounded-full w-4 h-4 bg-blue-400 absolute left-1/2 transform -translate-x-1/2 -top-1.5"></div>
+                        <p class="text-sm text-gray-700 ml-6">২০ মার্চ ২০২<span dir="ltr">৫</span> - lorium ipsum</p>
+                        </li>
+                        <li class="mb-6">
+                        <div class="rounded-full w-4 h-4 bg-blue-400 absolute left-1/2 transform -translate-x-1/2 -top-1.5"></div>
+                        <p class="text-sm text-gray-700 ml-6">২০ মার্চ ২০২<span dir="ltr">৫</span> - lorium ipsum</p>
+                        </li>
+                        <li class="mb-6">
+                        <div class="rounded-full w-4 h-4 bg-blue-400 absolute left-1/2 transform -translate-x-1/2 -top-1.5"></div>
+                        <p class="text-sm text-gray-700 ml-6">২০ মার্চ ২০২<span dir="ltr">৫</span> - lorium ipsum</p>
+                        </li>
+                        <li>
+                        <div class="rounded-full w-4 h-4 bg-blue-400 absolute left-1/2 transform -translate-x-1/2 -top-1.5"></div>
+                        <p class="text-sm text-gray-700 ml-6">২০ মার্চ ২০২<span dir="ltr">৫</span> - lorium ipsum</p>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-md shadow-md p-4">
+                    <div class="flex justify-end mb-2">
+                    <button class="bg-yellow-300 text-yellow-800 font-semibold py-1 px-3 rounded-md text-sm focus:outline-none">Edit</button>
+                    </div>
+                    <div>
+                    <label for="date" class="block text-gray-700 text-sm font-bold mb-1">তারিখ</label>
+                    <input type="text" id="date" value="০৩ মার্চ ২০২৭" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="mt-2">
+                    <label for="previous-position" class="block text-gray-700 text-sm font-bold mb-1">পূর্বের পদ</label>
+                    <input type="text" id="previous-position" value="সহকারী পরিচালক" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="mt-2">
+                    <label for="current-position" class="block text-gray-700 text-sm font-bold mb-1">বর্তমান পদ</label>
+                    <input type="text" id="current-position" value="অতিরিক্ত পরিচালক" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="mt-2">
+                    <label for="office-order" class="block text-gray-700 text-sm font-bold mb-1">অফিস আদেশ</label>
+                    <div class="flex items-center border border-gray-300 rounded py-2 px-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm3 5a1 1 0 011-1h2a1 1 0 011 1v3a1 1 0 01-1 1H7a1 1 0 01-1-1V9zm4-1a1 1 0 100 2v3a1 1 0 100 2h2a1 1 0 100-2V8a1 1 0 100-2h-2z" clip-rule="evenodd" />
+                        </svg>
+                        <p class="text-sm text-gray-700">Filenameasdadasdadsda.pdf</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
         </div>
     </div>
 

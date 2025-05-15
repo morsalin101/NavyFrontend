@@ -4,3 +4,13 @@
 @theme {
   --font-noto:  "Noto Sans Bengali", sans-serif;
 }
+
+.text-primary{
+  @apply text-[#15358C];
+}
+.text-sidebar{
+  @apply text-[#FFEC01];
+}
+.border-color{
+  @apply border-[#15358C];
+}

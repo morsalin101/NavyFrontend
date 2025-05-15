@@ -151,9 +151,11 @@
           <div class="bg-white flex flex-col">
                <!-- links -->
                     <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-                            <button class="px-4 py-2 text-[18px]  text-[#FFEC01] bg-[#15358C] font-semibold focus:outline-none  rounded-t-2xl">ব্যক্তিগত তথ্য</button>
+                            
+                            <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">ব্যক্তিগত তথ্য</button>
+                            
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">পারিবারিক তথ্য</button>
-                            <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">শিক্ষাগত তথ্য</button>
+                            <button class="px-4 py-2 text-[18px]  text-[#FFEC01] bg-[#15358C] font-semibold focus:outline-none  rounded-t-2xl">শিক্ষাগত তথ্য  </button>
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">চাকরির তথ্য</button>
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">পদোন্নতি</button>
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">বদলী</button>
@@ -163,83 +165,124 @@
 
                     <div class="flex flex-col md:flex-row-reverse items-center mb-4 j">
 
-                        <button class="bg-[#15358C] hover:bg-blue-900 text-[#FFEC01] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        <button class="bg-[#15358C] hover:bg-blue-900 text-[#FFEC01]  py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             সম্পাদনা
                         </button>
                     </div>
                             <!-- form -->
-                     <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label for="nid-english" class="block text-primary  mb-2">পি নং (ইংরেজী)</label>
-                            <input type="text" id="nid-english" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="blood-group" class="block text-primary  mb-2">রক্তের গ্রুপ</label>
-                            <input type="text" id="blood-group" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="name-bangla" class="block text-primary  mb-2">নাম (বাংলা)</label>
-                            <input type="text" id="name-bangla" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="mobile-no" class="block text-primary  mb-2">মোবাইল নম্বর</label>
-                            <input type="text" id="mobile-no" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="name-english" class="block text-primary  mb-2">নাম (ইংরেজী)</label>
-                            <input type="text" id="name-english" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-primary  mb-2">ইমেইল</label>
-                            <input type="email" id="email" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="birth-date" class="block text-primary  mb-2">জন্ম তারিখ (ইংরেজী)</label>
-                            <input type="date" id="birth-date" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="nid-no" class="block text-primary  mb-2">এনআইডি</label>
-                            <input type="text" id="nid-no" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="gender" class="block text-primary  mb-2">লিঙ্গ</label>
-                            <select id="gender" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option>পুরুষ</option>
-                            <option>মহিলা</option>
-                            <option>অন্যান্য</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="father-name-english" class="block text-primary  mb-2">সনাক্ত করণ চিহ্ন (ইংরেজী)</label>
-                            <input type="text" id="father-name-english" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="marital-status" class="block text-primary  mb-2">বৈবাহিক অবস্থা</label>
-                            <select id="marital-status" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option>অবিবাহিত</option>
-                            <option>বিবাহিত</option>
-                            <option>বিপত্নীক/বিধবা</option>
-                            <option>তালাকপ্রাপ্ত</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="emergency-contact-name" class="block text-primary  mb-2">যোগাযোগকারীর/কর্ত্রী পার্টনারের নাম</label>
-                            <input type="text" id="emergency-contact-name" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="marriage-date" class="block text-primary  mb-2">বিয়ের তারিখ (ইংরেজী)</label>
-                            <input type="date" id="marriage-date" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="emergency-contact-number" class="block text-primary  mb-2">যোগাযোগকারীর/কর্ত্রী পার্টনারের ফোন নম্বর</label>
-                            <input type="text" id="emergency-contact-number" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="basic-salary" class="block text-primary  mb-2">বেসিক সেলারি</label>
-                            <input type="number" id="basic-salary" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                    </div>
-            
+                    <div>
+  <h3 class="text-lg font-semibold text-primary mb-3">এসএসসি</h3>
+  <div class="grid grid-cols-3 gap-4 mb-4">
+    <div>
+      <label for="ssc-exam" class="block text-primary   mb-2">পরীক্ষা</label>
+      <input type="text" id="ssc-exam" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="ssc-passing-year" class="block text-primary  mb-2">পাশের বছর/সাল</label>
+      <input type="text" id="ssc-passing-year" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="ssc-institute" class="block text-primary  mb-2">শিক্ষা প্রতিষ্ঠানের নাম</label>
+      <input type="text" id="ssc-institute" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="ssc-board" class="block text-primary   mb-2">বোর্ড/বিশ্ববিদ্যালয়ের নাম</label>
+      <input type="text" id="ssc-board" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="ssc-roll" class="block text-primary  mb-2">রোল নম্বর</label>
+      <input type="text" id="ssc-roll" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="ssc-grade" class="block text-primary mb-2">প্রাপ্ত বিভাগ/জিপিএ</label>
+      <input type="text" id="ssc-grade" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+  </div>
+
+  <h3 class="text-lg font-semibold text-primary mb-3">এইচএসসি</h3>
+  <div class="grid grid-cols-3 gap-4 mb-4">
+    <div>
+      <label for="hsc-exam" class="block text-primary  mb-2">পরীক্ষা</label>
+      <input type="text" id="hsc-exam" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="hsc-passing-year" class="block text-primary  mb-2">পাশের বছর/সাল</label>
+      <input type="text" id="hsc-passing-year" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="hsc-institute" class="block text-primary  mb-2">শিক্ষা প্রতিষ্ঠানের নাম</label>
+      <input type="text" id="hsc-institute" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="hsc-board" class="block text-primary  mb-2">বোর্ড/বিশ্ববিদ্যালয়ের নাম</label>
+      <input type="text" id="hsc-board" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="hsc-roll" class="block text-primary  mb-2">রোল নম্বর</label>
+      <input type="text" id="hsc-roll" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="hsc-grade" class="block text-primary mb-2">প্রাপ্ত বিভাগ/জিপিএ</label>
+      <input type="text" id="hsc-grade" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+  </div>
+
+  <h3 class="text-lg font-semibold text-primary mb-3">স্নাতক</h3>
+  <div class="grid grid-cols-3 gap-4 mb-4">
+    <div>
+      <label for="graduation-exam" class="block text-primary mb-2">পরীক্ষা</label>
+      <input type="text" id="graduation-exam" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="graduation-passing-year" class="block text-primary   mb-2">পাশের বছর/সাল</label>
+      <input type="text" id="graduation-passing-year" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="graduation-institute" class="block text-primary mb-2">শিক্ষা প্রতিষ্ঠানের নাম</label>
+      <input type="text" id="graduation-institute" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="graduation-board" class="block text-primary  mb-2">বোর্ড/বিশ্ববিদ্যালয়ের নাম</label>
+      <input type="text" id="graduation-board" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="graduation-roll" class="block text-primary  mb-2">রোল নম্বর</label>
+      <input type="text" id="graduation-roll" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="graduation-grade" class="block text-primary   mb-2">প্রাপ্ত বিভাগ/জিপিএ</label>
+      <input type="text" id="graduation-grade" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+  </div>
+
+  <h3 class="text-lg font-semibold text-primary mb-3">মাস্টার্স</h3>
+  <div class="grid grid-cols-3 gap-4">
+    <div>
+      <label for="masters-exam" class="block text-primary   mb-2">পরীক্ষা</label>
+      <input type="text" id="masters-exam" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="masters-passing-year" class="block text-primary  mb-2">পাশের বছর/সাল</label>
+      <input type="text" id="masters-passing-year" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="masters-institute" class="block text-primary  mb-2">শিক্ষা প্রতিষ্ঠানের নাম</label>
+      <input type="text" id="masters-institute" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="masters-board" class="block text-primary  mb-2">বোর্ড/বিশ্ববিদ্যালয়ের নাম</label>
+      <input type="text" id="masters-board" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="masters-roll" class="block text-primary  mb-2">রোল নম্বর</label>
+      <input type="text" id="masters-roll" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div>
+      <label for="masters-grade" class="block text-primary  mb-2">প্রাপ্ত বিভাগ/জিপিএ</label>
+      <input type="text" id="masters-grade" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+  </div>
+</div>
 
           </div>
         </div>
