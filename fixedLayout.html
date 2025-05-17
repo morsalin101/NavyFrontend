@@ -7,22 +7,35 @@
     <link href="../src/output.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        #sidebar.show {
-            display: block !important;
-            position: fixed;
-            z-index: 50;
-            height: 100%;
-            top: 40px;
-            background-color: #1e3a8a; /* Match your blue-900 */
+        @media (max-width: 768px) {
+            #sidebar{
+                /* position: absolute; */
+                z-index: 50;
+                height: 100%;
+                /* top: 72px; */
+                transform: translateX(-100%);
+                transition: all 0.3s ease-in-out;
+            }
+            #sidebar.show {
+                /*background-color: #1e3a8a; /* Match your blue-900 */
+                transform: translateX(0);
+            }
         }
+        @media (min-width: 768px) {
+            #sidebar {
+                position: unset;
+                transform: translateX(0); /* This would override your max-width rule */
+            }
+        }
+
     </style>
 </head>
 <body class="bg-gray-100 font-noto">
-    <div class="flex h-screen">
+    <div class="flex">
         <!-- Sidebar -->
-        <div id="sidebar" class="bg-blue-900 text-white w-64 flex-shrink-0 hidden md:block">
-            <!-- Sidebar top logo -->
-            <div class="py-4 px-4 bg-blue-900 border-b border-blue-800 sticky top-0">
+        <div id="sidebar" class="h-screen absolute inset-0 top-[72px] bg-blue-900 text-white w-64 flex-shrink-0">
+            <!-- Sidebar Header -->
+            <div class="py-4 px-4 bg-blue-900 border-b border-blue-800 hidden md:block">
                 <div class="flex items-center">
                     <div class="mr-2">
                         <div class="w-8 h-8 rounded-full flex items-center justify-center">
@@ -38,7 +51,7 @@
 
             <!-- Sidebar Menu -->
             <div class="py-4 px-4">
-                <ul class="text-[#FFEC01]">
+                <ul class="text-sidebar">
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="index.html" class="flex gap-2 items-center px-4 py-3 text-yellow-400 hover:bg-blue-800">
                             <img src="../assets/sidebar/Category.png" alt="">
@@ -99,17 +112,28 @@
         <!-- Main Content -->
         <div class="flex-1 overflow-auto relative">
             <!-- Hamburger Button (Mobile Only) -->
-            <div class="md:hidden top-4 left-4 z-50 absolute">
+            <div class="md:hidden top-4 left-4 z-50 absolute flex items-center gap-4">
                 <button id="hamburgerBtn" class="text-white bg-blue-900 p-2 rounded-md focus:outline-none">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
+                <div class="flex items-center">
+                    <div class="mr-2">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center">
+                            <img src="../assets/navyLogo.png" alt="Navy Logo" class="w-8 h-8 rounded-full" />
+                        </div>
+                    </div>
+                    <div class="ml-2">
+                        <h1 class="text-[#FFEC01] text-lg font-medium">বাংলাদেশ নৌবাহিনী </h1>
+                        <p class="text-[#FFEC01] text-xs opacity-80">বেসামরিক কর্মী ব্যবস্থাপনা</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Overlay (Mobile Only) -->
-            <div id="overlay" class="hidden fixed inset-0 z-40 overlay md:hidden"></div>
+            <div id="overlay" class="hidden absolute inset-0 top-[72px] bg-black/50 z-40 overlay md:hidden"></div>
 
-            <!-- navbar right  -->
-            <div class="bg-blue-900 text-white py-4 px-6 flex justify-between items-center sticky top-0 z-40">
+            <!-- Header -->
+            <div class="bg-blue-900 text-white py-4 px-6 flex justify-between items-center">
                 <div></div>
                 <div class="flex items-center">
                     <div class="mr-6 relative">
@@ -123,24 +147,94 @@
             </div>
 
             <!-- Dashboard Content -->
-        <div class="p-6">
-        
-          <!-- Content will be here -->
+            <div class="p-6">
+                <!-- Welcome Section -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                    <div class="md:col-span-3 bg-blue-800 text-white rounded-lg p-6">
+                        <h2 class="text-2xl">স্বাগতম মোঃ রফিক মিয়া</h2>
+                        <p class="text-[48px] mt-2">আজ ১৫ এপ্রিল ২০২৫,<br> সোমবার!</p>
+                    </div>
+                    <div class="bg-blue-800 text-white rounded-lg p-6 flex flex-col items-center justify-center">
+                        <h3 class="text-4xl font-bold">৩০০</h3>
+                        <p class="text-center text-[24px]">অনুমোদন অপেক্ষায়</p>
+                        <button class="mt-4 bg-[#FFEC01] text-blue-900 py-[8px] px-[20px] rounded-full hover:bg-yellow-300">
+                            সব দেখুন <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Stat Card 1 -->
+                    <div class="bg-[#D8EAFF] rounded-lg p-6 flex items-center">
+                        <div class="relative w-32 h-32">
+                            <svg class="transform -rotate-90 w-full h-full" viewBox="0 0 100 100">
+                                <circle class="text-white" stroke-width="10" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
+                                <circle class="text-blue-800" stroke-width="10" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-blue-800">ঘাটতি</h3>
+                            <p class="text-4xl font-bold">৮৭%</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 2 -->
+                    <div class="bg-[#D8EAFF] rounded-lg p-6 flex items-center">
+                        <div class="mr-4 flex items-end h-20">
+                            <div class="w-6 h-12 rounded-t bg-blue-800 mr-1"></div>
+                            <div class="w-6 h-20 rounded-t bg-blue-800"></div>
+                        </div>
+                        <div>
+                            <h3 class="text-gray-600">শুন্যপদ</h3>
+                            <p class="text-4xl font-bold">৪৩০২</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 3 -->
+                    <div class="bg-[#D8EAFF] rounded-lg p-6 flex items-center">
+                        <div class="mr-4">
+                            <div class="text-5xl text-blue-800">
+                                <img src="../assets/taka 1.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-gray-600">সম্ভাব্য বেতন খরচ</h3>
+                            <p class="text-4xl font-bold">১০ কোটি</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- jQuery Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#hamburgerBtn').on('click', function () {
-                $('#sidebar').toggleClass('show');
-                $('#overlay').toggleClass('hidden');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const closeSidebar = () => {
+            sidebar.classList.remove('show');
+            overlay.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden', 'h-screen');
+        };
+        const openSidebar = () => {
+            sidebar.classList.add('show');
+            overlay.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden', 'h-screen');
+        };
+        document.addEventListener('DOMContentLoaded', function () {
+            hamburgerBtn.addEventListener('click', function () {
+                if (sidebar.classList.contains('show')) {
+                    closeSidebar();
+                } else {
+                    openSidebar();
+                }
             });
 
-            $('#overlay').on('click', function () {
-                $('#sidebar').removeClass('show');
-                $('#overlay').addClass('hidden');
+            overlay.addEventListener('click', function () {
+                closeSidebar();
             });
         });
     </script>

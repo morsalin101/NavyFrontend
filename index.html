@@ -7,24 +7,33 @@
     <link href="../src/output.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        #sidebar{
-            position: absolute;
-            z-index: 50;
-            height: 100%;
-            top: 72px;
-            transform: translateX(-100%);
-            transition: all 0.3s ease-in-out;
+        @media (max-width: 768px) {
+            #sidebar{
+                position: absolute;
+                z-index: 50;
+                height: 100%;
+                top: 72px;
+                transform: translateX(-100%);
+                transition: all 0.3s ease-in-out;
+            }
+            #sidebar.show {
+                /*background-color: #1e3a8a; /* Match your blue-900 */
+                transform: translateX(0);
+            }
         }
-        #sidebar.show {
-            /*background-color: #1e3a8a; /* Match your blue-900 */
-            transform: translateX(0);
+        @media (min-width: 768px) {
+            #sidebar {
+                position: unset;
+                transform: translateX(0); /* This would override your max-width rule */
+            }
         }
+
     </style>
 </head>
 <body class="bg-gray-100 font-noto">
-    <div class="flex h-screen">
+    <div class="flex">
         <!-- Sidebar -->
-        <div id="sidebar" class="bg-blue-900 text-white w-64 flex-shrink-0 md:block">
+        <div id="sidebar" class="h-screen bg-blue-900 text-white w-64 flex-shrink-0">
             <!-- Sidebar Header -->
             <div class="py-4 px-4 bg-blue-900 border-b border-blue-800 hidden md:block">
                 <div class="flex items-center">
@@ -121,7 +130,7 @@
             </div>
 
             <!-- Overlay (Mobile Only) -->
-            <div id="overlay" class="hidden fixed inset-0 top-[72px] bg-black/50 z-40 overlay md:hidden"></div>
+            <div id="overlay" class="hidden absolute inset-0 top-[72px] bg-black/50 z-40 overlay md:hidden"></div>
 
             <!-- Header -->
             <div class="bg-blue-900 text-white py-4 px-6 flex justify-between items-center">
@@ -208,10 +217,12 @@
         const closeSidebar = () => {
             sidebar.classList.remove('show');
             overlay.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden', 'h-screen');
         };
         const openSidebar = () => {
             sidebar.classList.add('show');
             overlay.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden', 'h-screen');
         };
         document.addEventListener('DOMContentLoaded', function () {
             hamburgerBtn.addEventListener('click', function () {
