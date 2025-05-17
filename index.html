@@ -7,22 +7,26 @@
     <link href="../src/output.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        #sidebar.show {
-            display: block !important;
-            position: fixed;
+        #sidebar{
+            position: absolute;
             z-index: 50;
             height: 100%;
-            top: 40px;
-            background-color: #1e3a8a; /* Match your blue-900 */
+            top: 72px;
+            transform: translateX(-100%);
+            transition: all 0.3s ease-in-out;
+        }
+        #sidebar.show {
+            /*background-color: #1e3a8a; /* Match your blue-900 */
+            transform: translateX(0);
         }
     </style>
 </head>
 <body class="bg-gray-100 font-noto">
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <div id="sidebar" class="bg-blue-900 text-white w-64 flex-shrink-0 hidden md:block">
+        <div id="sidebar" class="bg-blue-900 text-white w-64 flex-shrink-0 md:block">
             <!-- Sidebar Header -->
-            <div class="py-4 px-4 bg-blue-900 border-b border-blue-800">
+            <div class="py-4 px-4 bg-blue-900 border-b border-blue-800 hidden md:block">
                 <div class="flex items-center">
                     <div class="mr-2">
                         <div class="w-8 h-8 rounded-full flex items-center justify-center">
@@ -99,14 +103,25 @@
         <!-- Main Content -->
         <div class="flex-1 overflow-auto relative">
             <!-- Hamburger Button (Mobile Only) -->
-            <div class="md:hidden top-4 left-4 z-50 absolute">
+            <div class="md:hidden top-4 left-4 z-50 absolute flex items-center gap-4">
                 <button id="hamburgerBtn" class="text-white bg-blue-900 p-2 rounded-md focus:outline-none">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
+                <div class="flex items-center">
+                    <div class="mr-2">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center">
+                            <img src="../assets/navyLogo.png" alt="Navy Logo" class="w-8 h-8 rounded-full" />
+                        </div>
+                    </div>
+                    <div class="ml-2">
+                        <h1 class="text-[#FFEC01] text-lg font-medium">বাংলাদেশ নৌবাহিনী </h1>
+                        <p class="text-[#FFEC01] text-xs opacity-80">বেসামরিক কর্মী ব্যবস্থাপনা</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Overlay (Mobile Only) -->
-            <div id="overlay" class="hidden fixed inset-0 z-40 overlay md:hidden"></div>
+            <div id="overlay" class="hidden fixed inset-0 top-[72px] bg-black/50 z-40 overlay md:hidden"></div>
 
             <!-- Header -->
             <div class="bg-blue-900 text-white py-4 px-6 flex justify-between items-center">
@@ -187,15 +202,28 @@
     <!-- jQuery Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#hamburgerBtn').on('click', function () {
-                $('#sidebar').toggleClass('show');
-                $('#overlay').toggleClass('hidden');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const closeSidebar = () => {
+            sidebar.classList.remove('show');
+            overlay.classList.add('hidden');
+        };
+        const openSidebar = () => {
+            sidebar.classList.add('show');
+            overlay.classList.remove('hidden');
+        };
+        document.addEventListener('DOMContentLoaded', function () {
+            hamburgerBtn.addEventListener('click', function () {
+                if (sidebar.classList.contains('show')) {
+                    closeSidebar();
+                } else {
+                    openSidebar();
+                }
             });
 
-            $('#overlay').on('click', function () {
-                $('#sidebar').removeClass('show');
-                $('#overlay').addClass('hidden');
+            overlay.addEventListener('click', function () {
+                closeSidebar();
             });
         });
     </script>

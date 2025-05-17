@@ -155,84 +155,102 @@
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">ব্যক্তিগত তথ্য</button>
                             
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">পারিবারিক তথ্য</button>
-                            <button class="px-4 py-2 text-[18px]  text-[#FFEC01] bg-[#15358C] font-semibold focus:outline-none  rounded-t-2xl">শিক্ষাগত তথ্য  </button>
+                            <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">শিক্ষাগত তথ্য  </button>
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">চাকরির তথ্য</button>
-                            <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">পদোন্নতি</button>
+                            <button class="px-4 py-2 text-[18px]  text-[#FFEC01] bg-[#15358C] rounded-t-2xl font-semibold focus:outline-none">পদোন্নতি</button>
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none">বদলী</button>
                             <button class="px-4 py-2 text-[18px] text-primary  border-b border-color focus:outline-none">শৃঙ্খলাজনিত তথ্য</button>
                             <button class="px-4 py-2 text-[18px] text-primary border-b border-color focus:outline-none rounded-tr-md rounded-br-md">এসিয়ার</button>
                     </div>
 
                     <div class="flex flex-col md:flex-row-reverse items-center mb-4 j">
-
-                        <button class="bg-[#15358C] hover:bg-blue-900 text-[#FFEC01]  py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            সম্পাদনা
-                        </button>
+                         <button class="bg-[#FFEC01] text-primary px-4 py-2 rounded-full shadow hover:bg-yellow-500 ">Add</button>
+                       
                     </div>
                             <!-- form -->
-               
+                 <div class="p-6"
+            style="background-image: url('data:image/svg+xml,%3csvg width=\'100%25\' height=\'100%25\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3crect width=\'100%25\' height=\'100%25\' fill=\'none\' rx=\'25\' ry=\'25\' stroke=\'%2315358CFF\' stroke-width=\'4\' stroke-dasharray=\'24\' stroke-dashoffset=\'55\' stroke-linecap=\'square\'/%3e%3c/svg%3e'); background-repeat: no-repeat; background-size: 100% 100%; border-radius: 25px;">
+
+    <div class="flex flex-col md:flex-row justify-between gap-6 p-6">
+
+        <!-- Timeline -->
+        <div class="w-full md:w-1/2 flex gap-4">
+        <div class="flex justify-center">
+            <div class="relative">
+                           <!-- vertical line -->
+                <div class="absolute left-0 transform -translate-x-1/2 h-full w-0.5 bg-[#15358C]"></div>
+                <!-- timeline points -->
+                <div class="flex flex-col gap-6 items-center space-y-10 py-4 -ml-2">
+         
+                    <div class="flex gap-4 items-center">
+                       <div class="w-4 h-4 rounded-full bg-[#15358C] z-10"></div>
+                       <p>২০ মার্চ ২০২৫ - lorium ipsum</p>
+                    </div>
+                     <div class="flex gap-4 items-center">
+                       <div class="w-4 h-4 rounded-full bg-[#15358C] z-10"></div>
+                       <p>২০ মার্চ ২০২৫ - lorium ipsum</p>
+                    </div>
+                     <div class="flex gap-4 items-center">
+                       <div class="w-4 h-4 rounded-full bg-[#15358C] z-10"></div>
+                       <p>২০ মার্চ ২০২৫ - lorium ipsum</p>
+                    </div>
+                     <div class="flex gap-4 items-center">
+                       <div class="w-4 h-4 rounded-full bg-[#15358C] z-10"></div>
+                       <p>২০ মার্চ ২০২৫ - lorium ipsum</p>
+                    </div>
+                     <div class="flex gap-4 items-center">
+                       <div class="w-4 h-4 rounded-full bg-[#15358C] z-10"></div>
+                       <p>২০ মার্চ ২০২৫ - lorium ipsum</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Form -->
+        <div class="w-full md:w-1/2 bg-white rounded-xl border border-gray-300  p-6">
+            <div class="flex justify-end mb-4">
+                <button class="bg-[#FFEC01] text-primary px-4 py-2 rounded-full shadow-lg hover:bg-yellow-500 ">Edit</button>
+            </div>
+            <form class="space-y-4 text-[16px]">
+                <div>
+                    <label class="block text-primary  mb-1">তারিখ</label>
+                    <input type="text" value="০৩ মার্চ ২০১৭" class="w-full px-6 py-2 border border-gray-300 rounded" />
+                </div>
+                <div>
+                    <label class="block text-primary  mb-1">পূর্বের পদ</label>
+                    <input type="text" value="সহকারী পরিচালক" class="w-full px-4 py-2 border border-gray-300 rounded" />
+                </div>
+                <div>
+                    <label class="block text-primary  mb-1">বর্তমান পদ</label>
+                    <input type="text" value="অতিরিক্ত পরিচালক" class="w-full px-4 py-2 border border-gray-300 rounded" />
+                </div>
+                <div>
+                    <label class="block text-primary  mb-1">অফিস আদেশ</label>
+                    <div class="flex items-center gap-2 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#15358C" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15.172 7l-6.586 6.586a2 2 0 002.828 2.828L18 9.828V7h-2.828z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16v4H7v-4a4 4 0 014-4h6" />
+                        </svg>
+                        <span class="underline break-all">Filenameasdadasdadadad.pdf</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+                 </div>
 
           </div>
  
-            <div class="border-2 border-dashed border-blue-400 rounded-xl p-6 flex">
-                <div class="flex-shrink-0 mr-8">
-                    <div class="relative">
-                    <div class="absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 w-0.5 bg-blue-400"></div>
-                    <ul>
-                        <li class="mb-6">
-                        <div class="rounded-full w-4 h-4 bg-blue-400 absolute left-1/2 transform -translate-x-1/2 -top-1.5"></div>
-                        <p class="text-sm text-gray-700 ml-6">২০ মার্চ ২০২<span dir="ltr">৫</span> - lorium ipsum</p>
-                        </li>
-                        <li class="mb-6">
-                        <div class="rounded-full w-4 h-4 bg-blue-400 absolute left-1/2 transform -translate-x-1/2 -top-1.5"></div>
-                        <p class="text-sm text-gray-700 ml-6">২০ মার্চ ২০২<span dir="ltr">৫</span> - lorium ipsum</p>
-                        </li>
-                        <li class="mb-6">
-                        <div class="rounded-full w-4 h-4 bg-blue-400 absolute left-1/2 transform -translate-x-1/2 -top-1.5"></div>
-                        <p class="text-sm text-gray-700 ml-6">২০ মার্চ ২০২<span dir="ltr">৫</span> - lorium ipsum</p>
-                        </li>
-                        <li class="mb-6">
-                        <div class="rounded-full w-4 h-4 bg-blue-400 absolute left-1/2 transform -translate-x-1/2 -top-1.5"></div>
-                        <p class="text-sm text-gray-700 ml-6">২০ মার্চ ২০২<span dir="ltr">৫</span> - lorium ipsum</p>
-                        </li>
-                        <li>
-                        <div class="rounded-full w-4 h-4 bg-blue-400 absolute left-1/2 transform -translate-x-1/2 -top-1.5"></div>
-                        <p class="text-sm text-gray-700 ml-6">২০ মার্চ ২০২<span dir="ltr">৫</span> - lorium ipsum</p>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-md shadow-md p-4">
-                    <div class="flex justify-end mb-2">
-                    <button class="bg-yellow-300 text-yellow-800 font-semibold py-1 px-3 rounded-md text-sm focus:outline-none">Edit</button>
-                    </div>
-                    <div>
-                    <label for="date" class="block text-gray-700 text-sm font-bold mb-1">তারিখ</label>
-                    <input type="text" id="date" value="০৩ মার্চ ২০২৭" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div class="mt-2">
-                    <label for="previous-position" class="block text-gray-700 text-sm font-bold mb-1">পূর্বের পদ</label>
-                    <input type="text" id="previous-position" value="সহকারী পরিচালক" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div class="mt-2">
-                    <label for="current-position" class="block text-gray-700 text-sm font-bold mb-1">বর্তমান পদ</label>
-                    <input type="text" id="current-position" value="অতিরিক্ত পরিচালক" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div class="mt-2">
-                    <label for="office-order" class="block text-gray-700 text-sm font-bold mb-1">অফিস আদেশ</label>
-                    <div class="flex items-center border border-gray-300 rounded py-2 px-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm3 5a1 1 0 011-1h2a1 1 0 011 1v3a1 1 0 01-1 1H7a1 1 0 01-1-1V9zm4-1a1 1 0 100 2v3a1 1 0 100 2h2a1 1 0 100-2V8a1 1 0 100-2h-2z" clip-rule="evenodd" />
-                        </svg>
-                        <p class="text-sm text-gray-700">Filenameasdadasdadsda.pdf</p>
-                    </div>
-                    </div>
-                </div>
-                </div>
+        
 
 
-        </div>
+        </div> 
+        <!-- main-content -->
     </div>
 
     <!-- jQuery Script -->
