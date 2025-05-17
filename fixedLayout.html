@@ -110,33 +110,33 @@
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 overflow-auto relative">
+        <div id="main__content" class="flex-1 overflow-auto relative h-screen">
             <!-- Hamburger Button (Mobile Only) -->
-            <div class="md:hidden top-4 left-4 z-50 absolute flex items-center gap-4">
-                <button id="hamburgerBtn" class="text-white bg-blue-900 p-2 rounded-md focus:outline-none">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-                <div class="flex items-center">
-                    <div class="mr-2">
-                        <div class="w-8 h-8 rounded-full flex items-center justify-center">
-                            <img src="../assets/navyLogo.png" alt="Navy Logo" class="w-8 h-8 rounded-full" />
-                        </div>
-                    </div>
-                    <div class="ml-2">
-                        <h1 class="text-[#FFEC01] text-lg font-medium">বাংলাদেশ নৌবাহিনী </h1>
-                        <p class="text-[#FFEC01] text-xs opacity-80">বেসামরিক কর্মী ব্যবস্থাপনা</p>
-                    </div>
-                </div>
-            </div>
+            
 
             <!-- Overlay (Mobile Only) -->
             <div id="overlay" class="hidden absolute inset-0 top-[72px] bg-black/50 z-40 overlay md:hidden"></div>
 
             <!-- Header -->
-            <div class="bg-blue-900 text-white py-4 px-6 flex justify-between items-center">
-                <div></div>
-                <div class="flex items-center">
-                    <div class="mr-6 relative">
+                <div class="bg-blue-900 text-white py-4 px-6 flex justify-between items-center sticky top-0">
+                    <div class="md:opacity-0 md:pointer-none flex items-center gap-4">
+                    <button id="hamburgerBtn" class="text-white bg-blue-900 p-2 rounded-md focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <div class="flex items-center">
+                        <div class="mr-2">
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center">
+                                <img src="../assets/navyLogo.png" alt="Navy Logo" class="w-8 h-8 rounded-full" />
+                            </div>
+                        </div>
+                        <div class="ml-2">
+                            <h1 class="text-[#FFEC01] text-lg font-medium">বাংলাদেশ নৌবাহিনী </h1>
+                            <p class="text-[#FFEC01] text-xs opacity-80">বেসামরিক কর্মী ব্যবস্থাপনা</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="relative leading-none">
                         <i class="fas fa-bell text-xl"></i>
                         <span class="absolute -top-1 -right-1 bg-red-500 text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
                     </div>
@@ -148,65 +148,18 @@
 
             <!-- Dashboard Content -->
             <div class="p-6">
-                <!-- Welcome Section -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-                    <div class="md:col-span-3 bg-blue-800 text-white rounded-lg p-6">
-                        <h2 class="text-2xl">স্বাগতম মোঃ রফিক মিয়া</h2>
-                        <p class="text-[48px] mt-2">আজ ১৫ এপ্রিল ২০২৫,<br> সোমবার!</p>
-                    </div>
-                    <div class="bg-blue-800 text-white rounded-lg p-6 flex flex-col items-center justify-center">
-                        <h3 class="text-4xl font-bold">৩০০</h3>
-                        <p class="text-center text-[24px]">অনুমোদন অপেক্ষায়</p>
-                        <button class="mt-4 bg-[#FFEC01] text-blue-900 py-[8px] px-[20px] rounded-full hover:bg-yellow-300">
-                            সব দেখুন <i class="fas fa-arrow-right ml-1"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Stats Section -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Stat Card 1 -->
-                    <div class="bg-[#D8EAFF] rounded-lg p-6 flex items-center">
-                        <div class="relative w-32 h-32">
-                            <svg class="transform -rotate-90 w-full h-full" viewBox="0 0 100 100">
-                                <circle class="text-white" stroke-width="10" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
-                                <circle class="text-blue-800" stroke-width="10" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-blue-800">ঘাটতি</h3>
-                            <p class="text-4xl font-bold">৮৭%</p>
-                        </div>
-                    </div>
-
-                    <!-- Stat Card 2 -->
-                    <div class="bg-[#D8EAFF] rounded-lg p-6 flex items-center">
-                        <div class="mr-4 flex items-end h-20">
-                            <div class="w-6 h-12 rounded-t bg-blue-800 mr-1"></div>
-                            <div class="w-6 h-20 rounded-t bg-blue-800"></div>
-                        </div>
-                        <div>
-                            <h3 class="text-gray-600">শুন্যপদ</h3>
-                            <p class="text-4xl font-bold">৪৩০২</p>
-                        </div>
-                    </div>
-
-                    <!-- Stat Card 3 -->
-                    <div class="bg-[#D8EAFF] rounded-lg p-6 flex items-center">
-                        <div class="mr-4">
-                            <div class="text-5xl text-blue-800">
-                                <img src="../assets/taka 1.png" alt="">
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-gray-600">সম্ভাব্য বেতন খরচ</h3>
-                            <p class="text-4xl font-bold">১০ কোটি</p>
-                        </div>
-                    </div>
-                </div>
+               <!-- Main content area -->
+               
             </div>
+
+
         </div>
     </div>
+
+
+             
+  
+
 
     <!-- jQuery Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -214,15 +167,19 @@
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
+        const mainContent = document.getElementById('main__content');
+
         const closeSidebar = () => {
             sidebar.classList.remove('show');
             overlay.classList.add('hidden');
             document.body.classList.remove('overflow-hidden', 'h-screen');
+            mainContent.classList.remove('overflow-hidden');
         };
         const openSidebar = () => {
             sidebar.classList.add('show');
             overlay.classList.remove('hidden');
             document.body.classList.add('overflow-hidden', 'h-screen');
+            mainContent.classList.add('overflow-hidden');
         };
         document.addEventListener('DOMContentLoaded', function () {
             hamburgerBtn.addEventListener('click', function () {

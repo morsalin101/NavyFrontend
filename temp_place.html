@@ -1,0 +1,186 @@
+<!-- Modal Backdrop -->
+     <div id="modalBackdrop" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+<!-- Modal Container -->
+<div id="userModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+  <!-- Modal Content -->
+  <div class="bg-white shadow-lg w-full max-w-md mx-4 rounded-xl">
+    <!-- Modal Header -->
+    <div class="flex justify-between items-center p-4 ">
+      <h3 class="text-lg font-medium text-blue-900">নতুন ব্যবহারকারী যোগ করুন</h3>
+      <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Modal Body (Form) -->
+    <div class="p-6">
+      <form id="userForm">
+        <!-- Name Field -->
+        <div class="mb-4">
+          <label for="name" class="block text-blue-900 mb-1">নাম</label>
+          <input type="text" id="name" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        
+        <!-- Email Field -->
+        <div class="mb-4">
+          <label for="email" class="block text-blue-900 mb-1">ইমেইল</label>
+          <input type="email" id="email" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        
+        <!-- Mobile Field -->
+        <div class="mb-4">
+          <label for="mobile" class="block text-blue-900 mb-1">মোবাইল</label>
+          <input type="tel" id="mobile" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        
+        <!-- Password Field -->
+        <div class="mb-4">
+          <label for="password" class="block text-blue-900 mb-1">পাসওয়ার্ড</label>
+          <input type="password" id="password" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        
+        <!-- Confirm Password Field -->
+        <div class="mb-4">
+          <label for="confirmPassword" class="block text-blue-900 mb-1">পুনরায় পাসওয়ার্ড</label>
+          <input type="password" id="confirmPassword" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        
+        <!-- Submit Button -->
+        <div class="mt-6 flex justify-end">
+          <button type="button" id="cancelBtn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded mr-2">বাতিল</button>
+          <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">জমা দিন</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+ <!-- Dashboard Content -->
+            <div class="p-6">
+               <!-- Main content area -->
+                <div class="p-6 bg-white min-h-screen">
+                    <!-- Header with title and breadcrumb -->
+                    <div class="bg-blue-900 text-yellow-300 p-4 rounded-t-md flex justify-between items-center mb-4">
+                    <div></div>
+                        <h1 class="text-[40px] font-bold">ব্যবহারকারী ব্যবস্থাপনা</h1>
+                        <div class="text-sm text-yellow-300">
+                            আপলোড / কর্মচারী তথ্য / অনুসন্ধান
+                        </div>
+                    </div>
+                    
+                    <!-- Add new button -->
+                    <div class="flex justify-end mb-4">
+                        <button id="openModalBtn" class="bg-[#FFEC01] hover:bg-yellow-500 text-blue-900 font-bold py-2 px-6 rounded-full shadow-[0_4px_0_0_rgba(0,0,0,0.2)] transition">
+                            নতুনযোগ
+                        </button>
+                    </div>
+
+                    
+
+                    
+                    <!-- Table -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse mb-6">
+                            <!-- Table Header -->
+                            <thead>
+                                <tr class="text-[32px]">
+                                    <th class="border border-gray-300 bg-blue-900 text-yellow-300 p-3  text-left">নাম</th>
+                                    <th class="border border-gray-300 bg-blue-900 text-yellow-300 p-3 text-left">ইমেইল</th>
+                                    <th class="border border-gray-300 bg-blue-900 text-yellow-300 p-3 text-left">মোবাইল</th>
+                                    <th class="border border-gray-300 bg-blue-900 text-yellow-300 p-3 text-center">অবস্থা</th>
+                                    <th class="border border-gray-300 bg-blue-900 text-yellow-300 p-3 text-center">ব্যবস্থা</th>
+                                </tr>
+                            </thead>
+                            <!-- Table Body -->
+                           <tbody>
+                            <!-- Row 1 -->
+                            <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
+                                <td class="border border-gray-300 p-3">M A Salam</td>
+                                <td class="border border-gray-300 p-3">salam123@gmail.com</td>
+                                <td class="border border-gray-300 p-3">01797360000</td>
+                                <td class="border border-gray-300 p-3 text-center">
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer" />
+                                        <div class="relative w-16 h-8 bg-gray-100 rounded-full border-2 border-blue-700 shadow-md transition-all peer-focus:outline-none
+                                            dark:bg-gray-100 peer-checked:bg-gray-100 dark:peer-checked:bg-gray-100"
+                                            style="box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                            <div class="absolute top-0.5 left-0.5 bg-white rounded-full h-6 w-6 shadow-lg transition-all duration-300 peer-checked:translate-x-8"
+                                                style="box-shadow: -1px 1px 3px rgba(0,0,0,0.5);"></div>
+                                        </div>
+                                    </label>
+                                </td>
+                                <td class="border border-gray-300 p-3 text-center">
+                                    <button class="text-blue-600 hover:text-blue-800 mx-1">
+                                        <img src="../assets/edit.png" alt="Edit" />
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-800 mx-1">
+                                        <img src="../assets/delete.png" alt="Delete" />
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Row 2 -->
+                            <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
+                                <td class="border border-gray-300 p-3">M A Salam</td>
+                                <td class="border border-gray-300 p-3">salam123@gmail.com</td>
+                                <td class="border border-gray-300 p-3">01797360000</td>
+                                <td class="border border-gray-300 p-3 text-center">
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer" />
+                                        <div class="relative w-16 h-8 bg-gray-100 rounded-full border-2 border-blue-700 shadow-md transition-all peer-focus:outline-none
+                                            dark:bg-gray-100 peer-checked:bg-gray-100 dark:peer-checked:bg-gray-100"
+                                            style="box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                            <div class="absolute top-0.5 left-0.5 bg-white rounded-full h-6 w-6 shadow-lg transition-all duration-300 peer-checked:translate-x-8"
+                                                style="box-shadow: -1px 1px 3px rgba(0,0,0,0.5);"></div>
+                                        </div>
+                                    </label>
+                                </td>
+                                <td class="border border-gray-300 p-3 text-center">
+                                    <button class="text-blue-600 hover:text-blue-800 mx-1">
+                                        <img src="../assets/edit.png" alt="Edit" />
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-800 mx-1">
+                                        <img src="../assets/delete.png" alt="Delete" />
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Add more rows similarly -->
+                        </tbody>
+
+                        </table>
+                    </div>
+                    
+                    <!-- Pagination Info -->
+                    <div class="flex justify-center items-center mb-4 text-sm text-gray-600">
+                        <span>পেইজ</span>
+                        <span class="mx-2">1</span>
+                        <span>মধ্যে 100</span>
+                    </div>
+                    
+                        <!-- Pagination Controls -->
+                        <div class="flex justify-center">
+                            <nav class="inline-flex">
+                                <a href="#" class="px-3 py-2 border border-gray-300 bg-white text-blue-600 hover:bg-blue-50">
+                                    &laquo;
+                                </a>
+                                <a href="#" class="px-3 py-2 border border-gray-300 bg-white text-blue-600 hover:bg-blue-50">
+                                    &lsaquo;
+                                </a>
+                                <a href="#" class="px-3 py-2 border border-gray-300 bg-blue-900 text-white hover:bg-blue-800">
+                                    1
+                                </a>
+                                <a href="#" class="px-3 py-2 border border-gray-300 bg-white text-blue-600 hover:bg-blue-50">
+                                    2
+                                </a>
+                                <!-- More pagination links -->
+                            </nav>
+                        </div>
+                </div>
+            </div>
+
+
+

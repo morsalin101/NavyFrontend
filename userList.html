@@ -5,21 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bengali Dashboard</title>
     <link href="../src/output.css" rel="stylesheet">
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @media (max-width: 768px) {
+            #sidebar{
+                /* position: absolute; */
+                z-index: 50;
+                height: 100%;
+                /* top: 72px; */
+                transform: translateX(-100%);
+                transition: all 0.3s ease-in-out;
+            }
+            #sidebar.show {
+                /*background-color: #1e3a8a; /* Match your blue-900 */
+                transform: translateX(0);
+            }
+        }
+        @media (min-width: 768px) {
+            #sidebar {
+                position: unset;
+                transform: translateX(0); /* This would override your max-width rule */
+            }
+        }
+
+    </style>
 </head>
 <body class="bg-gray-100 font-noto">
-    <div class="flex h-screen">
+    <div class="flex">
         <!-- Sidebar -->
-        <div class="bg-blue-900 text-white w-64 flex-shrink-0">
+        <div id="sidebar" class="h-screen absolute inset-0 top-[72px] bg-blue-900 text-white w-64 flex-shrink-0">
             <!-- Sidebar Header -->
-            <div class="py-4 px-4 bg-blue-900 border-b border-blue-800">
+            <div class="py-4 px-4 bg-blue-900 border-b border-blue-800 hidden md:block">
                 <div class="flex items-center">
                     <div class="mr-2">
-                        <div class="w-8 h-8  rounded-full flex items-center justify-center">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center">
                             <img src="../assets/navyLogo.png" alt="Navy Logo" class="w-8 h-8 rounded-full" />
                         </div>
                     </div>
-                    <div class="ml-2 ">
+                    <div class="ml-2">
                         <h1 class="text-[#FFEC01] text-lg font-medium">বাংলাদেশ নৌবাহিনী </h1>
                         <p class="text-[#FFEC01] text-xs opacity-80">বেসামরিক কর্মী ব্যবস্থাপনা</p>
                     </div>
@@ -28,35 +51,34 @@
 
             <!-- Sidebar Menu -->
             <div class="py-4 px-4">
-                <ul class="text-[#FFEC01] text-[18px]">
+                <ul class="text-sidebar">
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="index.html" class="flex gap-2 items-center px-4 py-3 text-yellow-400 hover:bg-blue-800">
-                            <!-- <i class="fas fa-home w-5 mr-3"></i> -->
-                             <img src="../assets/sidebar/Category.png" alt="">
+                            <img src="../assets/sidebar/Category.png" alt="">
                             <span>ড্যাশবোর্ড</span>
                         </a>
                     </li>
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
-                              <img src="../assets/sidebar/Filter 3.png" alt="">
+                            <img src="../assets/sidebar/Filter 3.png" alt="">
                             <span>অনুসন্ধান</span>
                         </a>
                     </li>
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
-                              <img src="../assets/sidebar/Folder.png" alt="">
+                            <img src="../assets/sidebar/Folder.png" alt="">
                             <span>কর্মচারী তথ্য</span>
                         </a>
                     </li>
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
-                              <img src="../assets/sidebar/Category.png" alt="">
+                            <img src="../assets/sidebar/Category.png" alt="">
                             <span>অনুসন্ধান</span>
                         </a>
                     </li>
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="userList.html" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
-                             <img src="../assets/sidebar/Filter.png" alt="">
+                            <img src="../assets/sidebar/Filter.png" alt="">
                             <span>ব্যবহারকারী ব্যবস্থাপনা</span>
                         </a>
                     </li>
@@ -66,16 +88,14 @@
                             <span>প্রতিবেদন</span>
                         </a>
                     </li>
-
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
-                              <img src="../assets/sidebar/Info Square.png" alt="">
+                            <img src="../assets/sidebar/Info Square.png" alt="">
                             <span>ক্রিয়াকলাপ ও লগ</span>
                         </a>
-
                     <li class="mb-1 border-b border-[#FFEC01]">
                         <a href="#" class="flex gap-2 items-center px-4 py-3 hover:bg-blue-800">
-                              <img src="../assets/sidebar/Setting.png" alt="">
+                            <img src="../assets/sidebar/Setting.png" alt="">
                             <span>সেটিংস</span>
                         </a>
                     </li>
@@ -90,12 +110,33 @@
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 overflow-auto">
+        <div id="main__content" class="flex-1 overflow-auto relative h-screen">
+            <!-- Hamburger Button (Mobile Only) -->
+            
+
+            <!-- Overlay (Mobile Only) -->
+            <div id="overlay" class="hidden absolute inset-0 top-[72px] bg-black/50 z-40 overlay md:hidden"></div>
+
             <!-- Header -->
-            <div class="bg-blue-900 text-white py-4 px-6 flex justify-between items-center">
-                <div></div>
-                <div class="flex items-center">
-                    <div class="mr-6 relative">
+                <div class="bg-blue-900 text-white py-4 px-6 flex justify-between items-center sticky top-0">
+                    <div class="md:opacity-0 md:pointer-none flex items-center gap-4">
+                    <button id="hamburgerBtn" class="text-white bg-blue-900 p-2 rounded-md focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <div class="flex items-center">
+                        <div class="mr-2">
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center">
+                                <img src="../assets/navyLogo.png" alt="Navy Logo" class="w-8 h-8 rounded-full" />
+                            </div>
+                        </div>
+                        <div class="ml-2">
+                            <h1 class="text-[#FFEC01] text-lg font-medium">বাংলাদেশ নৌবাহিনী </h1>
+                            <p class="text-[#FFEC01] text-xs opacity-80">বেসামরিক কর্মী ব্যবস্থাপনা</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="relative leading-none">
                         <i class="fas fa-bell text-xl"></i>
                         <span class="absolute -top-1 -right-1 bg-red-500 text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
                     </div>
@@ -228,10 +269,13 @@
                         </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 
-<!-- Modal Backdrop -->
+
+              <!-- Modal Backdrop -->
      <div id="modalBackdrop" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
 
 <!-- Modal Container -->
@@ -292,32 +336,39 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- jQuery script -->
-<script>
-  const openBtn = document.getElementById('openModalBtn');
-  const modal = document.getElementById('userModal');
-  const backdrop = document.getElementById('modalBackdrop');
-  const closeBtn = document.getElementById('closeModal');
-  const cancelBtn = document.getElementById('cancelBtn');
+    <!-- jQuery Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const mainContent = document.getElementById('main__content');
 
-  function openModal() {
-    modal.classList.remove('hidden');
-    backdrop.classList.remove('hidden');
-  }
+        const closeSidebar = () => {
+            sidebar.classList.remove('show');
+            overlay.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden', 'h-screen');
+            mainContent.classList.remove('overflow-hidden');
+        };
+        const openSidebar = () => {
+            sidebar.classList.add('show');
+            overlay.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden', 'h-screen');
+            mainContent.classList.add('overflow-hidden');
+        };
+        document.addEventListener('DOMContentLoaded', function () {
+            hamburgerBtn.addEventListener('click', function () {
+                if (sidebar.classList.contains('show')) {
+                    closeSidebar();
+                } else {
+                    openSidebar();
+                }
+            });
 
-  function closeModal() {
-    modal.classList.add('hidden');
-    backdrop.classList.add('hidden');
-  }
-
-  openBtn.addEventListener('click', openModal);
-  closeBtn.addEventListener('click', closeModal);
-  cancelBtn.addEventListener('click', closeModal);
-  backdrop.addEventListener('click', closeModal);
-</script>
-
-
-
+            overlay.addEventListener('click', function () {
+                closeSidebar();
+            });
+        });
+    </script>
 </body>
 </html>
