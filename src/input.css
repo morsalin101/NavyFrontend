@@ -15,3 +15,7 @@
   @apply border-[#15358C];
 }
 
+.border-sidebar{
+    @apply border-b border-[#FFEC01] hover:border-none;
+}
+

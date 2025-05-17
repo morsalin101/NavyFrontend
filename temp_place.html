@@ -1,186 +1,288 @@
-<!-- Modal Backdrop -->
-     <div id="modalBackdrop" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
-
-<!-- Modal Container -->
-<div id="userModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
-  <!-- Modal Content -->
-  <div class="bg-white shadow-lg w-full max-w-md mx-4 rounded-xl">
-    <!-- Modal Header -->
-    <div class="flex justify-between items-center p-4 ">
-      <h3 class="text-lg font-medium text-blue-900">নতুন ব্যবহারকারী যোগ করুন</h3>
-      <button id="closeModal" class="text-gray-500 hover:text-gray-700">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+       <link href="../src/output.css" rel="stylesheet">
+</head>
+<body>
     
-    <!-- Modal Body (Form) -->
-    <div class="p-6">
-      <form id="userForm">
-        <!-- Name Field -->
-        <div class="mb-4">
-          <label for="name" class="block text-blue-900 mb-1">নাম</label>
-          <input type="text" id="name" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+<nav class="fixed top-0 z-50 w-full bg-[#15358C] border-b border-[#15358C]">
+  <div class="px-3 py-3 lg:px-5 lg:pl-3">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center justify-start rtl:justify-end">
+        <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button"
+          class="inline-flex items-center p-2 text-white rounded-lg sm:hidden hover:bg-[#102970] focus:outline-none focus:ring-2 focus:ring-white">
+          <span class="sr-only">Open sidebar</span>
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <path clip-rule="evenodd" fill-rule="evenodd"
+              d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+            </path>
+          </svg>
+        </button>
+        <a href="#" class="flex ms-2 md:me-24">
+          <img src="./assets/navyLogo.png" class="h-8 me-3" alt="Logo" />
+          <span class="self-center text-sm whitespace-nowrap text-sidebar">বাংলাদেশ নৌবাহিনী <br> <span class=" font-semibold">বেসামরিক কর্মী ব্যবস্থাপনা</span></span>
+        </a>
+      </div>
+
+      <div class="flex items-center">
+        <div class="flex items-center ms-3">
+          <div>
+            <button type="button" class="flex text-sm bg-white rounded-full focus:ring-4 focus:ring-white" aria-expanded="false"
+              data-dropdown-toggle="dropdown-user">
+              <span class="sr-only">Open user menu</span>
+              <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                alt="user photo">
+            </button>
+          </div>
+          <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm" id="dropdown-user">
+            <div class="px-4 py-3" role="none">
+              <p class="text-sm text-gray-900" role="none">Neil Sims</p>
+              <p class="text-sm font-medium text-gray-900 truncate" role="none">neil.sims@flowbite.com</p>
+            </div>
+            <ul class="py-1" role="none">
+              <li>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#f0f0f0]" role="menuitem">Dashboard</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#f0f0f0]" role="menuitem">Settings</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#f0f0f0]" role="menuitem">Earnings</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#f0f0f0]" role="menuitem">Sign out</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        
-        <!-- Email Field -->
-        <div class="mb-4">
-          <label for="email" class="block text-blue-900 mb-1">ইমেইল</label>
-          <input type="email" id="email" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-        
-        <!-- Mobile Field -->
-        <div class="mb-4">
-          <label for="mobile" class="block text-blue-900 mb-1">মোবাইল</label>
-          <input type="tel" id="mobile" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-        
-        <!-- Password Field -->
-        <div class="mb-4">
-          <label for="password" class="block text-blue-900 mb-1">পাসওয়ার্ড</label>
-          <input type="password" id="password" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-        
-        <!-- Confirm Password Field -->
-        <div class="mb-4">
-          <label for="confirmPassword" class="block text-blue-900 mb-1">পুনরায় পাসওয়ার্ড</label>
-          <input type="password" id="confirmPassword" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-        
-        <!-- Submit Button -->
-        <div class="mt-6 flex justify-end">
-          <button type="button" id="cancelBtn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded mr-2">বাতিল</button>
-          <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">জমা দিন</button>
-        </div>
-      </form>
+      </div>
+
     </div>
   </div>
+</nav>
+
+
+<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full border-r border-[#15358C] sm:translate-x-0 bg-[#15358C] " aria-label="Sidebar">
+   <div class="h-full px-3 pb-4 overflow-y-auto bg-[#15358C]">
+      <ul class="space-y-4 font-medium">
+         <li class="border-sidebar">
+            <a href="#" class="flex items-center p-2 text-yellow-400 rounded-full  hover:bg-yellow-300 hover:text-primary group ">
+            
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="stroke-[#FFEC01] group-hover:stroke-blue-900 transition-colors duration-200">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3 6.5C3 3.87479 3.02811 3 6.5 3C9.97189 3 10 3.87479 10 6.5C10 9.12521 10.0111 10 6.5 10C2.98893 10 3 9.12521 3 6.5Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14 6.5C14 3.87479 14.0281 3 17.5 3C20.9719 3 21 3.87479 21 6.5C21 9.12521 21.0111 10 17.5 10C13.9889 10 14 9.12521 14 6.5Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3 17.5C3 14.8748 3.02811 14 6.5 14C9.97189 14 10 14.8748 10 17.5C10 20.1252 10.0111 21 6.5 21C2.98893 21 3 20.1252 3 17.5Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14 17.5C14 14.8748 14.0281 14 17.5 14C20.9719 14 21 14.8748 21 17.5C21 20.1252 21.0111 21 17.5 21C13.9889 21 14 20.1252 14 17.5Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+               <span class="ms-3 group-hover:text-[#15358C]">ড্যাশবোর্ড</span>
+             
+            </a>
+         </li>
+        
+         <li class="border-sidebar">
+            <a href="#" class="flex items-center p-2 text-yellow-400 rounded-full  hover:bg-yellow-300 hover:text-primary group ">
+            
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"  class="stroke-[#FFEC01] group-hover:stroke-[#15358C] transition-colors duration-200">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.56517 3C3.70108 3 3 3.71286 3 4.5904V5.52644C3 6.17647 3.24719 6.80158 3.68936 7.27177L8.5351 12.4243L8.53723 12.4211C9.47271 13.3788 9.99905 14.6734 9.99905 16.0233V20.5952C9.99905 20.9007 10.3187 21.0957 10.584 20.9516L13.3436 19.4479C13.7602 19.2204 14.0201 18.7784 14.0201 18.2984V16.0114C14.0201 14.6691 14.539 13.3799 15.466 12.4243L20.3117 7.27177C20.7528 6.80158 21 6.17647 21 5.52644V4.5904C21 3.71286 20.3 3 19.4359 3H4.56517Z"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+               <span class="ms-3 group-hover:text-[#15358C]">অনুসন্ধান</span>
+             
+            </a>
+         </li>
+
+         <li class="border-sidebar">
+            <a href="#" class="flex items-center p-2 text-yellow-400 rounded-full  hover:bg-yellow-300 hover:text-primary group transla">
+            
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"  class="stroke-[#FFEC01] group-hover:stroke-blue-900 transition-colors duration-200">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.4189 15.732C21.4189 19.31 19.3099 21.419 15.7319 21.419H7.94991C4.36291 21.419 2.24991 19.31 2.24991 15.732V7.932C2.24991 4.359 3.56391 2.25 7.14291 2.25H9.14291C9.86091 2.251 10.5369 2.588 10.9669 3.163L11.8799 4.377C12.3119 4.951 12.9879 5.289 13.7059 5.29H16.5359C20.1229 5.29 21.4469 7.116 21.4469 10.767L21.4189 15.732Z"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7.48102 14.4629H16.216"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+               <span class="ms-3 group-hover:text-[#15358C]">কর্মচারী তথ্য</span>
+             
+            </a>
+         </li>
+
+         <li class="border-sidebar">
+            <a href="#" class="flex items-center p-2 text-yellow-400 rounded-full  hover:bg-yellow-300 hover:text-primary group transla">
+            
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"  class="stroke-[#FFEC01] group-hover:stroke-blue-900 transition-colors duration-200">
+                <path d="M10.3302 16.5928H4.02945"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13.1405 6.90042H19.4412"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.72629 6.84625C8.72629 5.5506 7.66813 4.5 6.36314 4.5C5.05816 4.5 4 5.5506 4 6.84625C4 8.14191 5.05816 9.19251 6.36314 9.19251C7.66813 9.19251 8.72629 8.14191 8.72629 6.84625Z"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20 16.5538C20 15.2581 18.9427 14.2075 17.6377 14.2075C16.3319 14.2075 15.2737 15.2581 15.2737 16.5538C15.2737 17.8494 16.3319 18.9 17.6377 18.9C18.9427 18.9 20 17.8494 20 16.5538Z"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+               <span class="ms-3 group-hover:text-[#15358C]">ব্যবহারকারী ব্যবস্থাপনা</span>
+             
+            </a>
+         </li>
+
+         <li class="border-sidebar">
+            <a href="#" class="flex items-center p-2 text-yellow-400 rounded-full  hover:bg-yellow-300 hover:text-primary group transla">
+            
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"  class="stroke-[#FFEC01] group-hover:stroke-blue-900 transition-colors duration-200">
+                <path d="M7.37142 10.2017V17.0618"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12.0381 6.91919V17.0619"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16.6286 13.8269V17.0619"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6857 2H7.31429C4.04762 2 2 4.31208 2 7.58516V16.4148C2 19.6879 4.0381 22 7.31429 22H16.6857C19.9619 22 22 19.6879 22 16.4148V7.58516C22 4.31208 19.9619 2 16.6857 2Z"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+               <span class="ms-3 group-hover:text-[#15358C]">প্রতিবেদন</span>
+             
+            </a>
+         </li>
+         
+         <li class="border-sidebar">
+            <a href="#" class="flex items-center p-2 text-yellow-400 rounded-full  hover:bg-yellow-300 hover:text-primary group transla">
+            
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"  class="stroke-[#FFEC01] group-hover:stroke-blue-900 transition-colors duration-200">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.3341 2.75H7.66509C4.64409 2.75 2.75009 4.889 2.75009 7.916V16.084C2.75009 19.111 4.63509 21.25 7.66509 21.25H16.3331C19.3641 21.25 21.2501 19.111 21.2501 16.084V7.916C21.2501 4.889 19.3641 2.75 16.3341 2.75Z"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11.9947 16V12"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11.9899 8.2041H11.9999"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+               <span class="ms-3 group-hover:text-[#15358C]">ক্রিয়াকলাপ ও লগ</span>
+             
+            </a>
+         </li>
+
+         <li class="border-sidebar">
+            <a href="#" class="flex items-center p-2 text-yellow-400 rounded-full  hover:bg-yellow-300 hover:text-primary group transla">
+            
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"  class="stroke-[#FFEC01] group-hover:stroke-blue-900 transition-colors duration-200">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8066 7.62361L20.1842 6.54352C19.6576 5.6296 18.4907 5.31432 17.5755 5.83872V5.83872C17.1399 6.09534 16.6201 6.16815 16.1307 6.04109C15.6413 5.91402 15.2226 5.59752 14.9668 5.16137C14.8023 4.88415 14.7139 4.56839 14.7105 4.24604V4.24604C14.7254 3.72922 14.5304 3.2284 14.17 2.85767C13.8096 2.48694 13.3145 2.27786 12.7975 2.27808H11.5435C11.0369 2.27807 10.5513 2.47991 10.194 2.83895C9.83666 3.19798 9.63714 3.68459 9.63958 4.19112V4.19112C9.62457 5.23693 8.77245 6.07681 7.72654 6.0767C7.40418 6.07336 7.08843 5.98494 6.8112 5.82041V5.82041C5.89603 5.29601 4.72908 5.61129 4.20251 6.52522L3.53432 7.62361C3.00838 8.53639 3.31937 9.70261 4.22997 10.2323V10.2323C4.82187 10.574 5.1865 11.2056 5.1865 11.8891C5.1865 12.5725 4.82187 13.2041 4.22997 13.5458V13.5458C3.32053 14.0719 3.0092 15.2353 3.53432 16.1454V16.1454L4.16589 17.2346C4.41262 17.6798 4.82657 18.0083 5.31616 18.1474C5.80575 18.2866 6.33061 18.2249 6.77459 17.976V17.976C7.21105 17.7213 7.73116 17.6516 8.21931 17.7822C8.70746 17.9128 9.12321 18.233 9.37413 18.6717C9.53867 18.9489 9.62708 19.2646 9.63043 19.587V19.587C9.63043 20.6435 10.4869 21.5 11.5435 21.5H12.7975C13.8505 21.5001 14.7055 20.6491 14.7105 19.5962V19.5962C14.7081 19.088 14.9088 18.6 15.2681 18.2407C15.6274 17.8814 16.1154 17.6807 16.6236 17.6831C16.9451 17.6917 17.2596 17.7798 17.5389 17.9394V17.9394C18.4517 18.4653 19.6179 18.1544 20.1476 17.2438V17.2438L20.8066 16.1454C21.0617 15.7075 21.1317 15.186 21.0012 14.6964C20.8706 14.2067 20.5502 13.7894 20.111 13.5367V13.5367C19.6717 13.284 19.3514 12.8666 19.2208 12.3769C19.0902 11.8873 19.1602 11.3658 19.4153 10.928C19.5812 10.6383 19.8213 10.3982 20.111 10.2323V10.2323C21.0161 9.70289 21.3264 8.54349 20.8066 7.63277V7.63277V7.62361Z"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12.175" cy="11.8891" r="2.63616"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+               <span class="ms-3 group-hover:text-[#15358C]">সেটিংস</span>
+             
+            </a>
+         </li>
+
+         <li class="border-sidebar">
+            <a href="#" class="flex items-center p-2 text-yellow-400 rounded-full  hover:bg-yellow-300 hover:text-primary group transla">
+            
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"  class="stroke-[#FFEC01] group-hover:stroke-blue-900 transition-colors duration-200">
+                <path d="M15.016 7.38948V6.45648C15.016 4.42148 13.366 2.77148 11.331 2.77148H6.456C4.422 2.77148 2.772 4.42148 2.772 6.45648V17.5865C2.772 19.6215 4.422 21.2715 6.456 21.2715H11.341C13.37 21.2715 15.016 19.6265 15.016 17.5975V16.6545"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21.8095 12.0215H9.76849"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18.8812 9.1062L21.8092 12.0212L18.8812 14.9372"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+               <span class="ms-3 group-hover:text-[#15358C]">লগআউট</span>
+             
+            </a>
+         </li>
+      </ul>
+   </div>
+</aside>
+
+
+<div class="p-4 sm:ml-64">
+   <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+      <div class="grid grid-cols-3 gap-4 mb-4">
+         <div class="flex items-center justify-center h-24 rounded-sm bg-gray-50 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+               </svg>
+            </p>
+         </div>
+         <div class="flex items-center justify-center h-24 rounded-sm bg-gray-50 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+               </svg>
+            </p>
+         </div>
+         <div class="flex items-center justify-center h-24 rounded-sm bg-gray-50 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+               </svg>
+            </p>
+         </div>
+      </div>
+      <div class="flex items-center justify-center h-48 mb-4 rounded-sm bg-gray-50 dark:bg-gray-800">
+         <p class="text-2xl text-gray-400 dark:text-gray-500">
+            <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+            </svg>
+         </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 mb-4">
+         <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+               </svg>
+            </p>
+         </div>
+         <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+               </svg>
+            </p>
+         </div>
+         <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+               </svg>
+            </p>
+         </div>
+         <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+               </svg>
+            </p>
+         </div>
+      </div>
+      <div class="flex items-center justify-center h-48 mb-4 rounded-sm bg-gray-50 dark:bg-gray-800">
+         <p class="text-2xl text-gray-400 dark:text-gray-500">
+            <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+            </svg>
+         </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+         <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+               </svg>
+            </p>
+         </div>
+         <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+               </svg>
+            </p>
+         </div>
+         <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+               </svg>
+            </p>
+         </div>
+         <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+               </svg>
+            </p>
+         </div>
+      </div>
+   </div>
 </div>
 
- <!-- Dashboard Content -->
-            <div class="p-6">
-               <!-- Main content area -->
-                <div class="p-6 bg-white min-h-screen">
-                    <!-- Header with title and breadcrumb -->
-                    <div class="bg-blue-900 text-yellow-300 p-4 rounded-t-md flex justify-between items-center mb-4">
-                    <div></div>
-                        <h1 class="text-[40px] font-bold">ব্যবহারকারী ব্যবস্থাপনা</h1>
-                        <div class="text-sm text-yellow-300">
-                            আপলোড / কর্মচারী তথ্য / অনুসন্ধান
-                        </div>
-                    </div>
-                    
-                    <!-- Add new button -->
-                    <div class="flex justify-end mb-4">
-                        <button id="openModalBtn" class="bg-[#FFEC01] hover:bg-yellow-500 text-blue-900 font-bold py-2 px-6 rounded-full shadow-[0_4px_0_0_rgba(0,0,0,0.2)] transition">
-                            নতুনযোগ
-                        </button>
-                    </div>
+</body>
+</html>
 
-                    
 
-                    
-                    <!-- Table -->
-                    <div class="overflow-x-auto">
-                        <table class="w-full border-collapse mb-6">
-                            <!-- Table Header -->
-                            <thead>
-                                <tr class="text-[32px]">
-                                    <th class="border border-gray-300 bg-blue-900 text-yellow-300 p-3  text-left">নাম</th>
-                                    <th class="border border-gray-300 bg-blue-900 text-yellow-300 p-3 text-left">ইমেইল</th>
-                                    <th class="border border-gray-300 bg-blue-900 text-yellow-300 p-3 text-left">মোবাইল</th>
-                                    <th class="border border-gray-300 bg-blue-900 text-yellow-300 p-3 text-center">অবস্থা</th>
-                                    <th class="border border-gray-300 bg-blue-900 text-yellow-300 p-3 text-center">ব্যবস্থা</th>
-                                </tr>
-                            </thead>
-                            <!-- Table Body -->
-                           <tbody>
-                            <!-- Row 1 -->
-                            <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
-                                <td class="border border-gray-300 p-3">M A Salam</td>
-                                <td class="border border-gray-300 p-3">salam123@gmail.com</td>
-                                <td class="border border-gray-300 p-3">01797360000</td>
-                                <td class="border border-gray-300 p-3 text-center">
-                                    <label class="inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" class="sr-only peer" />
-                                        <div class="relative w-16 h-8 bg-gray-100 rounded-full border-2 border-blue-700 shadow-md transition-all peer-focus:outline-none
-                                            dark:bg-gray-100 peer-checked:bg-gray-100 dark:peer-checked:bg-gray-100"
-                                            style="box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                            <div class="absolute top-0.5 left-0.5 bg-white rounded-full h-6 w-6 shadow-lg transition-all duration-300 peer-checked:translate-x-8"
-                                                style="box-shadow: -1px 1px 3px rgba(0,0,0,0.5);"></div>
-                                        </div>
-                                    </label>
-                                </td>
-                                <td class="border border-gray-300 p-3 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 mx-1">
-                                        <img src="../assets/edit.png" alt="Edit" />
-                                    </button>
-                                    <button class="text-red-600 hover:text-red-800 mx-1">
-                                        <img src="../assets/delete.png" alt="Delete" />
-                                    </button>
-                                </td>
-                            </tr>
 
-                            <!-- Row 2 -->
-                            <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
-                                <td class="border border-gray-300 p-3">M A Salam</td>
-                                <td class="border border-gray-300 p-3">salam123@gmail.com</td>
-                                <td class="border border-gray-300 p-3">01797360000</td>
-                                <td class="border border-gray-300 p-3 text-center">
-                                    <label class="inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" class="sr-only peer" />
-                                        <div class="relative w-16 h-8 bg-gray-100 rounded-full border-2 border-blue-700 shadow-md transition-all peer-focus:outline-none
-                                            dark:bg-gray-100 peer-checked:bg-gray-100 dark:peer-checked:bg-gray-100"
-                                            style="box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                            <div class="absolute top-0.5 left-0.5 bg-white rounded-full h-6 w-6 shadow-lg transition-all duration-300 peer-checked:translate-x-8"
-                                                style="box-shadow: -1px 1px 3px rgba(0,0,0,0.5);"></div>
-                                        </div>
-                                    </label>
-                                </td>
-                                <td class="border border-gray-300 p-3 text-center">
-                                    <button class="text-blue-600 hover:text-blue-800 mx-1">
-                                        <img src="../assets/edit.png" alt="Edit" />
-                                    </button>
-                                    <button class="text-red-600 hover:text-red-800 mx-1">
-                                        <img src="../assets/delete.png" alt="Delete" />
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <!-- Add more rows similarly -->
-                        </tbody>
-
-                        </table>
-                    </div>
-                    
-                    <!-- Pagination Info -->
-                    <div class="flex justify-center items-center mb-4 text-sm text-gray-600">
-                        <span>পেইজ</span>
-                        <span class="mx-2">1</span>
-                        <span>মধ্যে 100</span>
-                    </div>
-                    
-                        <!-- Pagination Controls -->
-                        <div class="flex justify-center">
-                            <nav class="inline-flex">
-                                <a href="#" class="px-3 py-2 border border-gray-300 bg-white text-blue-600 hover:bg-blue-50">
-                                    &laquo;
-                                </a>
-                                <a href="#" class="px-3 py-2 border border-gray-300 bg-white text-blue-600 hover:bg-blue-50">
-                                    &lsaquo;
-                                </a>
-                                <a href="#" class="px-3 py-2 border border-gray-300 bg-blue-900 text-white hover:bg-blue-800">
-                                    1
-                                </a>
-                                <a href="#" class="px-3 py-2 border border-gray-300 bg-white text-blue-600 hover:bg-blue-50">
-                                    2
-                                </a>
-                                <!-- More pagination links -->
-                            </nav>
-                        </div>
-                </div>
-            </div>
 
 
 
